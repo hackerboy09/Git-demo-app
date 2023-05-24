@@ -18,7 +18,7 @@ const GifsExpo = ({ categories = [] }) => {
 
         responsesList.forEach((data) => {
             data.forEach((item) => {
-                gifsList = [...gifsList, item.images.fixed_width.url]
+                gifsList = [...gifsList, item.images.fixed_width.url.split('?')[0]]
             })
         })
 
@@ -29,18 +29,15 @@ const GifsExpo = ({ categories = [] }) => {
 
     return (
         <>
-            <h4>GitExpo</h4>
-            <ol>
+            <div>
                 {
                     urlList.map((url) => {
                         return (
-                            <li key={url}>
-                                {url}
-                            </li>
+                            <img key={url} src={url} />   
                         )
                     })
                 }
-            </ol>
+            </div>
         </>
     )
 }
