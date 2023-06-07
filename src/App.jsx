@@ -3,7 +3,7 @@ import Categories from "./components/Categories"
 import GifsExpo from "./components/GifsExpo"
 
 function App() {
-  const [categories, setCategories] = useState(["Robotech", "Naruto"])
+  const [categories, setCategories] = useState(["Kimetsu no Yaiba", "Naruto"])
 
   return (
     <div className="m-5">
@@ -18,6 +18,14 @@ function App() {
         categories={categories}
         setCategories={setCategories}
       />
+      {
+        categories.length === 0 && (
+          <div className="text-center">
+            <h3>Your list is empty</h3>
+            Add a new category to get started.
+          </div>
+        )
+      }
     </div>
   )
 }
